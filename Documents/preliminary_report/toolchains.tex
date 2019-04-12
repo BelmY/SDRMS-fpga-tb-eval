@@ -1,0 +1,75 @@
+
+\subsection{IceStorm (iCE40)}
+IceStorm is used for iCE40 bitstream creation. It relies on \textbf{yosys} for synthesis and \textbf{NextPNR} for place and route.
+
+Supports all package variants of LP1K, LP4K, LP8K and HX1K, HX4K, HX8K, LP384 and UltraPlus devices.
+
+Does not support iCE40 LM, Ultra and UltraLite
+\subsection{Trellis (ECP5)}
+Project Trellis enables a fully open-source flow for ECP5 FPGAs using \textbf{Yosys} for Verilog synthesis and \textbf{nextpnr} for place and route. Project Trellis itself provides the device database and tools for bitstream creation.
+
+The following features are currently working in the Yosys -> nextpnr -> Trellis flow.
+
+\begin{itemize}
+\item Logic slice functionality, including carries
+\item Distributed RAM inside logic slices
+\item All internal interconnect
+\item Basic IO, including tristate, using TRELLIS\_IO primitives. LPF files and DDR inputs/outputs
+\item Block RAM, using either inference in Yosys or manual instantiation of the DP16KD primitive
+\item Multipliers using manual instantiation of the MULT18X18D primitive. 
+\newline Inference and more advanced DSP features are not yet supported.
+\item Global networks (automatically promoted and routed in nextpnr)
+\item PLLs
+\item Transcievers (DCUs)
+\end{itemize}
+
+\subsection{NextPNR} 
+    
+NextPNR is a portable FPGA place and route tool that aims to be a vendor neutral, timing driven, FOSS FPGA place and route tool.
+
+Currently NextPNR supports:
+\begin{itemize}
+\item Lattice iCE40 devices through project IceStorm
+\item Lattice ECP5 devices through project Trellis, currently experimental
+\item "generic" back-end for user-defined architectures, currently experimental
+\item Xilinx 7 Series could be supported in the future through project X-Ray 
+\end{itemize}
+
+\subsection{X-Ray (Xilinx 7)}
+Project X-Ray documents the Xilinx 7-Series FPGA architecture to enable development of open-source tools.
+
+
+
+\subsection{Symbiflow}
+Symbiflow aims to be an open source flow for generating bitstreams from Verilog. 
+
+Since it uses Yosis, icestorm, trellis, xray and nextpnr for each of the supported platforms, device support at the same level as the underlying projects.
+
+
+\subsection{IceStudio}
+IceStudio is a visual editor for open FPGA boards. Built on top of the Icestorm project using Apio.
+
+It implements Graphic design -> Verilog, PCF -> Bistream -> FPGA
+
+It supports the following devices:
+
+\begin{itemize}
+\item HX1K
+\item HX8K
+\item LP8K
+\item UP5K
+\end{itemize}
+
+It is the easiest to setup as it handles all the toolchain and device drivers downloads and it comes as an AppImage.
+
+\subsection{Intel Quartus Prime Lite Edition and ModelSim - Intel FPGA Starter Edition}
+This is the official software from Intel. The Lite edition comes with a free license and there is a Linux version.
+
+\subsection{Vivaldo}
+This is the official software from Xilinx. The HL WEBPack edition does not require a license and there is a Linux version.
+\subsection{CubicBoard}
+Cubicboard claims to be an open-source FPGA project for the Cyclone-V family.
+
+They do provide Open Hardware under Apache 2.0 license although source files are for Protel/Altium EDA.
+
+The provided software is a VirtualBox image of Ubuntu having Intel Quartus preinstalled.
