@@ -1,0 +1,198 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x7272E0914AD23D05",
+      "device": "xc7a100tcsg324-1",
+      "name": "counter",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2018.3",
+      "validated": "true"
+    },
+    "design_tree": {
+      "led_counter": "",
+      "scaler": "",
+      "xlslice_0": "",
+      "clk_wiz": ""
+    },
+    "ports": {
+      "led": {
+        "type": "data",
+        "direction": "O",
+        "left": "3",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 4} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} DATA_WIDTH 4}",
+            "value_src": "ip_prop"
+          }
+        }
+      },
+      "sw": {
+        "type": "data",
+        "direction": "I",
+        "left": "0",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "sys_clock": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "counter_sys_clock",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000"
+          }
+        }
+      },
+      "reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      }
+    },
+    "components": {
+      "led_counter": {
+        "vlnv": "xilinx.com:ip:c_counter_binary:12.0",
+        "xci_name": "counter_c_counter_binary_0_0",
+        "parameters": {
+          "Count_Mode": {
+            "value": "UPDOWN"
+          },
+          "Output_Width": {
+            "value": "4"
+          }
+        }
+      },
+      "scaler": {
+        "vlnv": "xilinx.com:ip:c_counter_binary:12.0",
+        "xci_name": "counter_c_counter_binary_0_1",
+        "parameters": {
+          "Output_Width": {
+            "value": "22"
+          }
+        }
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "counter_xlslice_0_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "21"
+          },
+          "DIN_TO": {
+            "value": "21"
+          },
+          "DIN_WIDTH": {
+            "value": "22"
+          }
+        }
+      },
+      "clk_wiz": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "counter_clk_wiz_0",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "374.246"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "241.356"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "8.6"
+          },
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "37.625"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "109.375"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "4"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      }
+    },
+    "nets": {
+      "led_counter_Q": {
+        "ports": [
+          "led_counter/Q",
+          "led"
+        ]
+      },
+      "sw_1": {
+        "ports": [
+          "sw",
+          "led_counter/UP"
+        ]
+      },
+      "scaler_Q": {
+        "ports": [
+          "scaler/Q",
+          "xlslice_0/Din"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "led_counter/CLK"
+        ]
+      },
+      "clk_wiz_clk_out1": {
+        "ports": [
+          "clk_wiz/clk_out1",
+          "scaler/CLK"
+        ]
+      },
+      "sys_clock_1": {
+        "ports": [
+          "sys_clock",
+          "clk_wiz/clk_in1"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "clk_wiz/resetn"
+        ]
+      }
+    }
+  }
+}
