@@ -1,0 +1,11 @@
+
+
+/home/drid/Devel/LSF/FPGA_Eval/fpga-toolbox-eval/Cyclone-V/LVDS_xceiver/LVDS_PLL.vhd
+
+May 09 11PM:38:49>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+/home/drid/Devel/LSF/FPGA_Eval/fpga-toolbox-eval/Cyclone-V/LVDS_xceiver/LVDS_PLL.vhd
+
+May 09 11PM:39:04>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
