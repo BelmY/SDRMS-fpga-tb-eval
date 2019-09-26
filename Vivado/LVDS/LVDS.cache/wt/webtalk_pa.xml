@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<!--The data in this file is primarily intended for consumption by Xilinx tools.
+The structure and the elements are likely to change over the next few releases.
+This means code written to parse this file will need to be revisited each subsequent release.-->
+<application name="pa" timeStamp="Sun May 19 13:42:48 2019">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="eb20b0788d95471c9206d6a6f2c7d512" type="ProjectID"/>
+<property name="ProjectIteration" value="3" type="ProjectIteration"/>
+</section>
+<section name="PlanAhead Usage" visible="true">
+<item name="Project Data">
+<property name="SrcSetCount" value="1" type="SrcSetCount"/>
+<property name="ConstraintSetCount" value="1" type="ConstraintSetCount"/>
+<property name="DesignMode" value="RTL" type="DesignMode"/>
+<property name="SynthesisStrategy" value="Vivado Synthesis Defaults" type="SynthesisStrategy"/>
+<property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
+</item>
+<item name="Java Command Handlers">
+<property name="CloseProject" value="1" type="JavaHandler"/>
+<property name="PlacePorts" value="1" type="JavaHandler"/>
+<property name="ReportDRC" value="1" type="JavaHandler"/>
+<property name="ReportMethodology" value="1" type="JavaHandler"/>
+<property name="RunBitgen" value="1" type="JavaHandler"/>
+<property name="RunImplementation" value="1" type="JavaHandler"/>
+<property name="RunSchematic" value="3" type="JavaHandler"/>
+<property name="RunSynthesis" value="1" type="JavaHandler"/>
+<property name="SaveDesign" value="1" type="JavaHandler"/>
+<property name="ShowView" value="2" type="JavaHandler"/>
+<property name="TimingConstraintsWizard" value="5" type="JavaHandler"/>
+<property name="TogglePlacePortsAreaMode" value="1" type="JavaHandler"/>
+<property name="TogglePlacePortsBankMode" value="2" type="JavaHandler"/>
+<property name="ToggleSequentialPlacePortsMode" value="1" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
+<property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
+</item>
+<item name="Gui Handlers">
+<property name="BaseDialog_CANCEL" value="2" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="4" type="GuiHandlerData"/>
+<property name="CmdMsgDialog_OK" value="1" type="GuiHandlerData"/>
+<property name="CommandsInput_TYPE_TCL_COMMAND_HERE" value="7" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="3" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="42" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_RESET_SYNTHESIS_RUN" value="1" type="GuiHandlerData"/>
+<property name="LogMonitor_MONITOR" value="1" type="GuiHandlerData"/>
+<property name="MainMenuMgr_FILE" value="2" type="GuiHandlerData"/>
+<property name="MainMenuMgr_PROJECT" value="1" type="GuiHandlerData"/>
+<property name="NetlistSchematicView_SHOW_IO_PORTS_IN_THIS_SCHEMATIC" value="2" type="GuiHandlerData"/>
+<property name="PACommandNames_AUTOPLACE_PORTS" value="1" type="GuiHandlerData"/>
+<property name="PACommandNames_CLOSE_PROJECT" value="1" type="GuiHandlerData"/>
+<property name="PACommandNames_PLACE_PORTS_AREA_MODE" value="1" type="GuiHandlerData"/>
+<property name="PACommandNames_PLACE_PORTS_BANK_MODE" value="2" type="GuiHandlerData"/>
+<property name="PACommandNames_SEQUENTIAL_PLACE_PORTS_MODE" value="1" type="GuiHandlerData"/>
+<property name="PAViews_DEVICE" value="5" type="GuiHandlerData"/>
+<property name="PAViews_PACKAGE" value="4" type="GuiHandlerData"/>
+<property name="PAViews_PROJECT_SUMMARY" value="2" type="GuiHandlerData"/>
+<property name="PAViews_SCHEMATIC" value="2" type="GuiHandlerData"/>
+<property name="PAViews_TIMING_CONSTRAINTS" value="1" type="GuiHandlerData"/>
+<property name="PowerPropPanel_LOAD_POWER_PROPERTIES" value="1" type="GuiHandlerData"/>
+<property name="ProjectTab_CLOSE_DESIGN" value="2" type="GuiHandlerData"/>
+<property name="SaveProjectUtils_DONT_SAVE" value="1" type="GuiHandlerData"/>
+<property name="SaveProjectUtils_SAVE" value="1" type="GuiHandlerData"/>
+<property name="SelectMenu_HIGHLIGHT" value="3" type="GuiHandlerData"/>
+<property name="SelectMenu_MARK" value="5" type="GuiHandlerData"/>
+<property name="SignalTablePanel_SIGNAL_TABLE" value="41" type="GuiHandlerData"/>
+<property name="SyntheticaGettingStartedView_RECENT_PROJECTS" value="1" type="GuiHandlerData"/>
+<property name="TclObjectTreeTable_TREETABLE" value="13" type="GuiHandlerData"/>
+<property name="VioTreeTablePanel_VIO_TREE_TABLE" value="1" type="GuiHandlerData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="8" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="4" type="TclMode"/>
+</item>
+</section>
+</application>
+</document>

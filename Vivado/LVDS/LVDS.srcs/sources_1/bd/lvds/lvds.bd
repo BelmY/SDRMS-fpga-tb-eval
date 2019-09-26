@@ -1,0 +1,195 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x761D7A3E8C4D4701",
+      "device": "xc7a100tcsg324-1",
+      "name": "lvds",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2018.3",
+      "validated": "true"
+    },
+    "design_tree": {
+      "selectio_wiz_0": "",
+      "clk_wiz": ""
+    },
+    "ports": {
+      "reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "sys_clock": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "lvds_sys_clock",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000"
+          }
+        }
+      },
+      "LVDS_p": {
+        "type": "data",
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "LVDS_n": {
+        "type": "data",
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "led": {
+        "type": "data",
+        "direction": "O",
+        "left": "3",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      }
+    },
+    "components": {
+      "selectio_wiz_0": {
+        "vlnv": "xilinx.com:ip:selectio_wiz:5.1",
+        "xci_name": "lvds_selectio_wiz_0_1",
+        "parameters": {
+          "BUS_IO_STD": {
+            "value": "LVDS_25"
+          },
+          "BUS_SIG_TYPE": {
+            "value": "DIFF"
+          },
+          "CLK_FWD_IO_STD": {
+            "value": "LVDS_25"
+          },
+          "CLK_FWD_SIG_TYPE": {
+            "value": "DIFF"
+          },
+          "SELIO_CLK_BUF": {
+            "value": "MMCM"
+          },
+          "SELIO_CLK_IO_STD": {
+            "value": "LVDS_25"
+          },
+          "SELIO_CLK_SIG_TYPE": {
+            "value": "DIFF"
+          },
+          "SELIO_INTERFACE_TYPE": {
+            "value": "NETWORKING"
+          },
+          "SERIALIZATION_FACTOR": {
+            "value": "4"
+          },
+          "SYSTEM_DATA_WIDTH": {
+            "value": "1"
+          },
+          "USE_SERIALIZATION": {
+            "value": "true"
+          }
+        }
+      },
+      "clk_wiz": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "lvds_clk_wiz_0",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "191.387"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "16"
+          },
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "62.500"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "1"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_wiz_clk_out1": {
+        "ports": [
+          "clk_wiz/clk_out1",
+          "selectio_wiz_0/clk_in"
+        ]
+      },
+      "sys_clock_1": {
+        "ports": [
+          "sys_clock",
+          "clk_wiz/clk_in1"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "clk_wiz/resetn"
+        ]
+      },
+      "LVDS_p_1": {
+        "ports": [
+          "LVDS_p",
+          "selectio_wiz_0/data_in_from_pins_p"
+        ]
+      },
+      "LVDS_n_1": {
+        "ports": [
+          "LVDS_n",
+          "selectio_wiz_0/data_in_from_pins_n"
+        ]
+      },
+      "selectio_wiz_0_data_in_to_device": {
+        "ports": [
+          "selectio_wiz_0/data_in_to_device",
+          "led"
+        ]
+      }
+    }
+  }
+}
