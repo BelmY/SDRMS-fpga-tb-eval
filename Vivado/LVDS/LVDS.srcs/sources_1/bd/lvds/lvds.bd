@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x761D7A3E8C4D4701",
+      "boundary_crc": "0x58AD62DCBFAEC9C0",
       "device": "xc7a100tcsg324-1",
       "name": "lvds",
       "synth_flow_mode": "Hierarchical",
@@ -9,8 +9,9 @@
       "validated": "true"
     },
     "design_tree": {
-      "selectio_wiz_0": "",
-      "clk_wiz": ""
+      "LVDS_In": "",
+      "clk_wiz": "",
+      "LVSD_Out": ""
     },
     "ports": {
       "reset": {
@@ -77,10 +78,32 @@
             "value_src": "default"
           }
         }
+      },
+      "SW": {
+        "type": "data",
+        "direction": "I",
+        "left": "3",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "LVDS_O_p": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "LVDS_O_n": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
       }
     },
     "components": {
-      "selectio_wiz_0": {
+      "LVDS_In": {
         "vlnv": "xilinx.com:ip:selectio_wiz:5.1",
         "xci_name": "lvds_selectio_wiz_0_1",
         "parameters": {
@@ -151,13 +174,59 @@
             "value": "true"
           }
         }
+      },
+      "LVSD_Out": {
+        "vlnv": "xilinx.com:ip:selectio_wiz:5.1",
+        "xci_name": "lvds_selectio_wiz_1_0",
+        "parameters": {
+          "BUS_DIR": {
+            "value": "OUTPUTS"
+          },
+          "BUS_IO_STD": {
+            "value": "LVDS_25"
+          },
+          "BUS_SIG_TYPE": {
+            "value": "DIFF"
+          },
+          "CLK_FWD_IO_STD": {
+            "value": "LVDS_25"
+          },
+          "CLK_FWD_SIG_TYPE": {
+            "value": "DIFF"
+          },
+          "SELIO_BUS_IN_DELAY": {
+            "value": "NONE"
+          },
+          "SELIO_CLK_BUF": {
+            "value": "MMCM"
+          },
+          "SELIO_CLK_IO_STD": {
+            "value": "HSTL_I"
+          },
+          "SELIO_CLK_SIG_TYPE": {
+            "value": "SINGLE"
+          },
+          "SELIO_INTERFACE_TYPE": {
+            "value": "NETWORKING"
+          },
+          "SERIALIZATION_FACTOR": {
+            "value": "4"
+          },
+          "SYSTEM_DATA_WIDTH": {
+            "value": "1"
+          },
+          "USE_SERIALIZATION": {
+            "value": "true"
+          }
+        }
       }
     },
     "nets": {
       "clk_wiz_clk_out1": {
         "ports": [
           "clk_wiz/clk_out1",
-          "selectio_wiz_0/clk_in"
+          "LVDS_In/clk_in",
+          "LVSD_Out/clk_in"
         ]
       },
       "sys_clock_1": {
@@ -175,19 +244,37 @@
       "LVDS_p_1": {
         "ports": [
           "LVDS_p",
-          "selectio_wiz_0/data_in_from_pins_p"
+          "LVDS_In/data_in_from_pins_p"
         ]
       },
       "LVDS_n_1": {
         "ports": [
           "LVDS_n",
-          "selectio_wiz_0/data_in_from_pins_n"
+          "LVDS_In/data_in_from_pins_n"
         ]
       },
       "selectio_wiz_0_data_in_to_device": {
         "ports": [
-          "selectio_wiz_0/data_in_to_device",
+          "LVDS_In/data_in_to_device",
           "led"
+        ]
+      },
+      "SW_1": {
+        "ports": [
+          "SW",
+          "LVSD_Out/data_out_from_device"
+        ]
+      },
+      "selectio_wiz_1_data_out_to_pins_n": {
+        "ports": [
+          "LVSD_Out/data_out_to_pins_n",
+          "LVDS_O_n"
+        ]
+      },
+      "selectio_wiz_1_data_out_to_pins_p": {
+        "ports": [
+          "LVSD_Out/data_out_to_pins_p",
+          "LVDS_O_p"
         ]
       }
     }
