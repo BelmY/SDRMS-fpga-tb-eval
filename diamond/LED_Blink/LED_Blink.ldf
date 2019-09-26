@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="LED_Blink" device="LFE5U-85F-6BG381C" default_implementation="LED_Blink">
+    <Options/>
+    <Implementation title="LED_Blink" dir="LED_Blink" description="LED_Blink" synthesis="synplify" default_strategy="Strategy1">
+        <Options def_top="topcount"/>
+        <Source name="LED_Blink/source/clockDivider.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="LED_Blink/source/count4.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="LED_Blink/source/count8.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="LED_Blink/source/LEDtest.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="LED_Blink/source/testbench.v" type="Verilog" type_short="Verilog" syn_sim="SimOnly">
+            <Options/>
+        </Source>
+        <Source name="LED_Blink/source/topcount.v" type="Verilog" type_short="Verilog">
+            <Options top_module="topcount"/>
+        </Source>
+        <Source name="LED_Blink/source/typepackage.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="LED_Blink.lpf" type="Logic Preference" type_short="LPF" excluded="TRUE">
+            <Options/>
+        </Source>
+        <Source name="LED_Blink/source/pin_assignments.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="LED_Blink1.sty"/>
+</BaliProject>

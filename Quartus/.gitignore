@@ -1,0 +1,41 @@
+# Folders
+*/db/
+*/incremental_db/
+*/simulation/
+*/timing/
+*/testbench/
+*/*_sim/
+*/_output_files/
+
+# File types
+*_generation_script*
+*_inst.vhd
+*.bak
+*.cmp
+*.done
+*.eqn
+*.hex
+*.html
+*.jdi
+*.jpg
+# *.mif
+*.pin
+*.pof
+*.ptf.*
+*.qar
+*.qarlog
+*.qws
+*.rpt
+# *.sdc 
+*.smsg
+*.sof
+*.sopc_builder
+*.summary
+*.tcl
+# *.txt 
+*~
+*example*
+*sopc_*
+
+# Files
+*/PLLJ_PLLSPE_INFO.txt
