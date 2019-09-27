@@ -1,0 +1,7 @@
+{
+	"common_dir" : "/home/drid/Devel/LSF/FPGA/fpga-toolbox-eval/Quartus/Simple_Counter_Sch/",
+	"acds_version" : "Version 18.1.1",
+	"platform" : "linux",
+	"os" : "Ubuntu 18.04.3",
+	"qpf" : "Simple_Counter_Sch.qpf"
+}
