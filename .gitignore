@@ -1,4 +1,5 @@
-
+*.runs/**
+*.cache/**
 *.bit
 
 *.svf
