@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2018.3
+set scripts_vivado_version 2019.1
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -158,16 +158,16 @@ proc create_root_design { parentCell } {
   # Create interface ports
 
   # Create ports
-  set LVDS_O_n [ create_bd_port -dir O -from 0 -to 0 LVDS_O_n ]
+  set LVDS_I_n [ create_bd_port -dir I -from 0 -to 0 -type data LVDS_I_n ]
+  set LVDS_I_p [ create_bd_port -dir I -from 0 -to 0 -type data LVDS_I_p ]
+  set LVDS_O_n [ create_bd_port -dir O -from 0 -to 0 -type data LVDS_O_n ]
   set LVDS_O_p [ create_bd_port -dir O -from 0 -to 0 LVDS_O_p ]
-  set LVDS_n [ create_bd_port -dir I -type data LVDS_n ]
-  set LVDS_p [ create_bd_port -dir I -type data LVDS_p ]
-  set SW [ create_bd_port -dir I -from 3 -to 0 -type data SW ]
   set led [ create_bd_port -dir O -from 3 -to 0 -type data led ]
   set reset [ create_bd_port -dir I -type rst reset ]
   set_property -dict [ list \
    CONFIG.POLARITY {ACTIVE_LOW} \
  ] $reset
+  set sw [ create_bd_port -dir I -from 3 -to 0 sw ]
   set sys_clock [ create_bd_port -dir I -type clk sys_clock ]
   set_property -dict [ list \
    CONFIG.FREQ_HZ {100000000} \
@@ -190,8 +190,8 @@ proc create_root_design { parentCell } {
    CONFIG.USE_SERIALIZATION {true} \
  ] $LVDS_In
 
-  # Create instance: LVSD_Out, and set properties
-  set LVSD_Out [ create_bd_cell -type ip -vlnv xilinx.com:ip:selectio_wiz:5.1 LVSD_Out ]
+  # Create instance: LVDS_Out, and set properties
+  set LVDS_Out [ create_bd_cell -type ip -vlnv xilinx.com:ip:selectio_wiz:5.1 LVDS_Out ]
   set_property -dict [ list \
    CONFIG.BUS_DIR {OUTPUTS} \
    CONFIG.BUS_IO_STD {LVDS_25} \
@@ -200,38 +200,34 @@ proc create_root_design { parentCell } {
    CONFIG.CLK_FWD_SIG_TYPE {DIFF} \
    CONFIG.SELIO_BUS_IN_DELAY {NONE} \
    CONFIG.SELIO_CLK_BUF {MMCM} \
-   CONFIG.SELIO_CLK_IO_STD {HSTL_I} \
-   CONFIG.SELIO_CLK_SIG_TYPE {SINGLE} \
+   CONFIG.SELIO_CLK_IO_STD {LVDS_25} \
+   CONFIG.SELIO_CLK_SIG_TYPE {DIFF} \
    CONFIG.SELIO_INTERFACE_TYPE {NETWORKING} \
    CONFIG.SERIALIZATION_FACTOR {4} \
    CONFIG.SYSTEM_DATA_WIDTH {1} \
    CONFIG.USE_SERIALIZATION {true} \
- ] $LVSD_Out
+ ] $LVDS_Out
 
-  # Create instance: clk_wiz, and set properties
-  set clk_wiz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz ]
+  # Create instance: clk_wiz_0, and set properties
+  set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
-   CONFIG.CLKOUT1_JITTER {191.387} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {16} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sys_clock} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {62.500} \
-   CONFIG.MMCM_DIVCLK_DIVIDE {1} \
    CONFIG.RESET_BOARD_INTERFACE {reset} \
    CONFIG.RESET_PORT {resetn} \
    CONFIG.RESET_TYPE {ACTIVE_LOW} \
    CONFIG.USE_BOARD_FLOW {true} \
- ] $clk_wiz
+ ] $clk_wiz_0
 
   # Create port connections
-  connect_bd_net -net LVDS_n_1 [get_bd_ports LVDS_n] [get_bd_pins LVDS_In/data_in_from_pins_n]
-  connect_bd_net -net LVDS_p_1 [get_bd_ports LVDS_p] [get_bd_pins LVDS_In/data_in_from_pins_p]
-  connect_bd_net -net SW_1 [get_bd_ports SW] [get_bd_pins LVSD_Out/data_out_from_device]
-  connect_bd_net -net clk_wiz_clk_out1 [get_bd_pins LVDS_In/clk_in] [get_bd_pins LVSD_Out/clk_in] [get_bd_pins clk_wiz/clk_out1]
-  connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz/resetn]
+  connect_bd_net -net LVDS_I_n_1 [get_bd_ports LVDS_I_n] [get_bd_pins LVDS_In/data_in_from_pins_n]
+  connect_bd_net -net LVDS_I_p_1 [get_bd_ports LVDS_I_p] [get_bd_pins LVDS_In/data_in_from_pins_p]
+  connect_bd_net -net LVDS_Out_data_out_to_pins_n [get_bd_ports LVDS_O_n] [get_bd_pins LVDS_Out/data_out_to_pins_n]
+  connect_bd_net -net LVSD_Out_data_out_to_pins_p [get_bd_ports LVDS_O_p] [get_bd_pins LVDS_Out/data_out_to_pins_p]
+  connect_bd_net -net clk_wiz_clk_out1 [get_bd_pins LVDS_In/clk_in] [get_bd_pins LVDS_Out/clk_in] [get_bd_pins clk_wiz_0/clk_out1]
+  connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz_0/resetn]
   connect_bd_net -net selectio_wiz_0_data_in_to_device [get_bd_ports led] [get_bd_pins LVDS_In/data_in_to_device]
-  connect_bd_net -net selectio_wiz_1_data_out_to_pins_n [get_bd_ports LVDS_O_n] [get_bd_pins LVSD_Out/data_out_to_pins_n]
-  connect_bd_net -net selectio_wiz_1_data_out_to_pins_p [get_bd_ports LVDS_O_p] [get_bd_pins LVSD_Out/data_out_to_pins_p]
-  connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz/clk_in1]
+  connect_bd_net -net sw_1 [get_bd_ports sw] [get_bd_pins LVDS_Out/data_out_from_device]
+  connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]
 
   # Create address segments
 

@@ -1,31 +1,35 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x58AD62DCBFAEC9C0",
+      "boundary_crc": "0xD4367525CF39B20",
       "device": "xc7a100tcsg324-1",
       "name": "lvds",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2018.3",
+      "tool_version": "2019.1",
       "validated": "true"
     },
     "design_tree": {
       "LVDS_In": "",
-      "clk_wiz": "",
-      "LVSD_Out": ""
+      "LVDS_Out": "",
+      "clk_wiz_0": ""
     },
     "ports": {
-      "reset": {
-        "type": "rst",
-        "direction": "I",
+      "led": {
+        "type": "data",
+        "direction": "O",
+        "left": "3",
+        "right": "0",
         "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
+          "LAYERED_METADATA": {
+            "value": "undef",
             "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW"
           }
         }
+      },
+      "sw": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
       },
       "sys_clock": {
         "type": "clk",
@@ -47,47 +51,16 @@
           }
         }
       },
-      "LVDS_p": {
-        "type": "data",
+      "reset": {
+        "type": "rst",
         "direction": "I",
         "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
+          "INSERT_VIP": {
+            "value": "0",
             "value_src": "default"
-          }
-        }
-      },
-      "LVDS_n": {
-        "type": "data",
-        "direction": "I",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
-      },
-      "led": {
-        "type": "data",
-        "direction": "O",
-        "left": "3",
-        "right": "0",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
-      },
-      "SW": {
-        "type": "data",
-        "direction": "I",
-        "left": "3",
-        "right": "0",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW"
           }
         }
       },
@@ -97,9 +70,40 @@
         "right": "0"
       },
       "LVDS_O_n": {
+        "type": "data",
         "direction": "O",
         "left": "0",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "LVDS_I_p": {
+        "type": "data",
+        "direction": "I",
+        "left": "0",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "LVDS_I_n": {
+        "type": "data",
+        "direction": "I",
+        "left": "0",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -142,40 +146,7 @@
           }
         }
       },
-      "clk_wiz": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "xci_name": "lvds_clk_wiz_0",
-        "parameters": {
-          "CLKOUT1_JITTER": {
-            "value": "191.387"
-          },
-          "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "16"
-          },
-          "CLK_IN1_BOARD_INTERFACE": {
-            "value": "sys_clock"
-          },
-          "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "62.500"
-          },
-          "MMCM_DIVCLK_DIVIDE": {
-            "value": "1"
-          },
-          "RESET_BOARD_INTERFACE": {
-            "value": "reset"
-          },
-          "RESET_PORT": {
-            "value": "resetn"
-          },
-          "RESET_TYPE": {
-            "value": "ACTIVE_LOW"
-          },
-          "USE_BOARD_FLOW": {
-            "value": "true"
-          }
-        }
-      },
-      "LVSD_Out": {
+      "LVDS_Out": {
         "vlnv": "xilinx.com:ip:selectio_wiz:5.1",
         "xci_name": "lvds_selectio_wiz_1_0",
         "parameters": {
@@ -201,10 +172,10 @@
             "value": "MMCM"
           },
           "SELIO_CLK_IO_STD": {
-            "value": "HSTL_I"
+            "value": "LVDS_25"
           },
           "SELIO_CLK_SIG_TYPE": {
-            "value": "SINGLE"
+            "value": "DIFF"
           },
           "SELIO_INTERFACE_TYPE": {
             "value": "NETWORKING"
@@ -219,38 +190,35 @@
             "value": "true"
           }
         }
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "lvds_clk_wiz_0_0",
+        "parameters": {
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
       }
     },
     "nets": {
       "clk_wiz_clk_out1": {
         "ports": [
-          "clk_wiz/clk_out1",
+          "clk_wiz_0/clk_out1",
           "LVDS_In/clk_in",
-          "LVSD_Out/clk_in"
-        ]
-      },
-      "sys_clock_1": {
-        "ports": [
-          "sys_clock",
-          "clk_wiz/clk_in1"
-        ]
-      },
-      "reset_1": {
-        "ports": [
-          "reset",
-          "clk_wiz/resetn"
-        ]
-      },
-      "LVDS_p_1": {
-        "ports": [
-          "LVDS_p",
-          "LVDS_In/data_in_from_pins_p"
-        ]
-      },
-      "LVDS_n_1": {
-        "ports": [
-          "LVDS_n",
-          "LVDS_In/data_in_from_pins_n"
+          "LVDS_Out/clk_in"
         ]
       },
       "selectio_wiz_0_data_in_to_device": {
@@ -259,22 +227,46 @@
           "led"
         ]
       },
-      "SW_1": {
+      "sw_1": {
         "ports": [
-          "SW",
-          "LVSD_Out/data_out_from_device"
+          "sw",
+          "LVDS_Out/data_out_from_device"
         ]
       },
-      "selectio_wiz_1_data_out_to_pins_n": {
+      "sys_clock_1": {
         "ports": [
-          "LVSD_Out/data_out_to_pins_n",
+          "sys_clock",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "clk_wiz_0/resetn"
+        ]
+      },
+      "LVSD_Out_data_out_to_pins_p": {
+        "ports": [
+          "LVDS_Out/data_out_to_pins_p",
+          "LVDS_O_p"
+        ]
+      },
+      "LVDS_Out_data_out_to_pins_n": {
+        "ports": [
+          "LVDS_Out/data_out_to_pins_n",
           "LVDS_O_n"
         ]
       },
-      "selectio_wiz_1_data_out_to_pins_p": {
+      "LVDS_I_p_1": {
         "ports": [
-          "LVSD_Out/data_out_to_pins_p",
-          "LVDS_O_p"
+          "LVDS_I_p",
+          "LVDS_In/data_in_from_pins_p"
+        ]
+      },
+      "LVDS_I_n_1": {
+        "ports": [
+          "LVDS_I_n",
+          "LVDS_In/data_in_from_pins_n"
         ]
       }
     }
