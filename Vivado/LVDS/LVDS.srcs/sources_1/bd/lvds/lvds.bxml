@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="37">
   <CompositeFile CompositeFileTopName="lvds" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1569719212"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1569719212"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1569719212"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1569719212"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1569751295"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1569751295"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1569751295"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1569751295"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/lvds_selectio_wiz_0_1/lvds_selectio_wiz_0_1.xci" Type="IP">
         <Instance HierarchyPath="LVDS_In"/>
@@ -23,6 +23,14 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
+      <File Name="ip/lvds_clk_wiz_0_0/lvds_clk_wiz_0_0.xci" Type="IP">
+        <Instance HierarchyPath="clk_wiz_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
       <File Name="synth/lvds.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
@@ -32,14 +40,6 @@
       <File Name="sim/lvds.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip/lvds_clk_wiz_0_0/lvds_clk_wiz_0_0.xci" Type="IP">
-        <Instance HierarchyPath="clk_wiz_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="lvds_ooc.xdc" Type="XDC">

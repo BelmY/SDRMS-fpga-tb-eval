@@ -32,7 +32,11 @@ set_property -dict {PACKAGE_PIN T10 IOSTANDARD LVCMOS33} [get_ports {led[3]}]
 #set_property -dict { PACKAGE_PIN V15   IOSTANDARD LVDS_25 } [get_ports {LVDS_I_p}]; #IO_L16P_T2_CSI_B_14 Sch=ck_io[0]
 #set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVDS_25 } [get_ports {LVDS_I_n}]; #IO_L18P_T2_A12_D28_14 Sch=ck_io[1]
 
-set_property PACKAGE_PIN V5 [get_ports {LVDS_I_p[0]}]
-set_property PACKAGE_PIN V7 [get_ports {LVDS_O_p[0]}]
+set_property PACKAGE_PIN D15 [get_ports {LVDS_I_p[0]}]
+set_property PACKAGE_PIN C15 [get_ports {LVDS_I_n[0]}]
+set_property PACKAGE_PIN E15 [get_ports {LVDS_O_p[0]}]
+set_property PACKAGE_PIN E16 [get_ports {LVDS_O_n[0]}]
 
 set_property IOSTANDARD LVDS_25 [get_ports {LVDS_I_p[0]}]
+
+

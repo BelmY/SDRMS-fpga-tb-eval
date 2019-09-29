@@ -2,28 +2,28 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
-preplace port reset -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
-preplace port sys_clock -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
-preplace port LVDS_I_p -pg 1 -lvl 0 -x 0 -y 270 -defaultsOSRD
-preplace port LVDS_I_n -pg 1 -lvl 0 -x 0 -y 290 -defaultsOSRD
+preplace port sys_clock -pg 1 -lvl 0 -x -10 -y 180 -defaultsOSRD
+preplace port reset -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
 preplace portBus led -pg 1 -lvl 3 -x 650 -y 320 -defaultsOSRD
+preplace portBus sw -pg 1 -lvl 0 -x -10 -y 100 -defaultsOSRD
 preplace portBus LVDS_O_p -pg 1 -lvl 3 -x 650 -y 80 -defaultsOSRD
 preplace portBus LVDS_O_n -pg 1 -lvl 3 -x 650 -y 100 -defaultsOSRD
-preplace portBus sw -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
-preplace inst clk_wiz -pg 1 -lvl 1 -x 120 -y 170 -defaultsOSRD
+preplace portBus LVDS_I_p -pg 1 -lvl 0 -x -10 -y 270 -defaultsOSRD
+preplace portBus LVDS_I_n -pg 1 -lvl 0 -x -10 -y 290 -defaultsOSRD
 preplace inst LVDS_In -pg 1 -lvl 2 -x 430 -y 320 -defaultsOSRD
-preplace inst LVSD_Out -pg 1 -lvl 2 -x 430 -y 90 -defaultsOSRD
+preplace inst LVDS_Out -pg 1 -lvl 2 -x 430 -y 90 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 120 -y 170 -defaultsOSRD
 preplace netloc clk_wiz_clk_out1 1 1 1 220 60n
+preplace netloc selectio_wiz_0_data_in_to_device 1 2 1 NJ 320
+preplace netloc sw_1 1 0 2 NJ 100 N
 preplace netloc sys_clock_1 1 0 1 NJ 180
 preplace netloc reset_1 1 0 1 NJ 160
-preplace netloc LVDS_p_1 1 0 2 NJ 270 NJ
-preplace netloc LVDS_n_1 1 0 2 NJ 290 NJ
-preplace netloc selectio_wiz_0_data_in_to_device 1 2 1 NJ 320
-preplace netloc selectio_wiz_1_data_out_to_pins_n 1 2 1 NJ 100
-preplace netloc selectio_wiz_1_data_out_to_pins_p 1 2 1 NJ 80
-preplace netloc sw_1 1 0 2 NJ 100 N
-levelinfo -pg 1 0 120 430 650
-pagesize -pg 1 -db -bbox -sgen -120 -20 810 430
+preplace netloc LVSD_Out_data_out_to_pins_p 1 2 1 N 80
+preplace netloc LVDS_Out_data_out_to_pins_n 1 2 1 N 100
+preplace netloc LVDS_I_p_1 1 0 2 NJ 270 NJ
+preplace netloc LVDS_I_n_1 1 0 2 NJ 290 NJ
+levelinfo -pg 1 -10 120 430 650
+pagesize -pg 1 -db -bbox -sgen -160 -40 810 430
 "
 }
 {
