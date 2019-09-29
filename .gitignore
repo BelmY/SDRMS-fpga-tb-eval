@@ -1,5 +1,3 @@
-*.runs/**
-*.cache/**
 *.bit
 
 *.svf

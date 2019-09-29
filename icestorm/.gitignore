@@ -1,0 +1,10 @@
+*.out
+*.blif
+*.bin
+*.asc
+
+*.vcd
+*.rpt
+
+abc.history
+.sconsign.dblite
