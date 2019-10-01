@@ -199,8 +199,8 @@ set_global_assignment -name PARTITION_COLOR 16764057 -entity DE0_CV -section_id 
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE0_CV -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_location_assignment PIN_C6 -to LVDS_OUT
-set_location_assignment PIN_D6 -to LVDS_OUT_N
+set_location_assignment PIN_B16 -to LVDS_OUT
+set_location_assignment PIN_C16 -to LVDS_OUT_N
 set_location_assignment PIN_H6 -to LVDS_IN_N
 set_location_assignment PIN_G6 -to LVDS_IN
 set_global_assignment -name SDC_FILE LVDS_xceiver.sdc

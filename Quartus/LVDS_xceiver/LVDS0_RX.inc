@@ -1,6 +1,6 @@
---Copyright (C) 2018  Intel Corporation. All rights reserved.
+--Copyright (C) 2019  Intel Corporation. All rights reserved.
 --Your use of Intel Corporation's design tools, logic functions 
---and other software and tools, and its AMPP partner logic 
+--and other software and tools, and any partner logic 
 --functions, and any output files from any of the foregoing 
 --(including device programming or simulation files), and any 
 --associated documentation or information are expressly subject 
@@ -10,16 +10,17 @@
 --agreement, including, without limitation, that your use is for
 --the sole purpose of programming logic devices manufactured by
 --Intel and sold by Intel or its authorized distributors.  Please
---refer to the applicable agreement for further details.
+--refer to the applicable agreement for further details, at
+--https://fpgasoftware.intel.com/eula.
 
 
 FUNCTION LVDS0_RX 
 (
+	rx_enable,
 	rx_in[0..0],
 	rx_inclock
 )
 
 RETURNS (
-	rx_out[3..0],
-	rx_outclock
+	rx_out[3..0]
 );
