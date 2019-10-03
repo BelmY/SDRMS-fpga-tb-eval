@@ -14,14 +14,13 @@
 --https://fpgasoftware.intel.com/eula.
 
 
-FUNCTION LVDS0_TX 
+FUNCTION LVDS_RX 
 (
-	tx_in[3..0],
-	tx_inclock
+	rx_in[0..0],
+	rx_inclock
 )
 
 RETURNS (
-	tx_locked,
-	tx_out[0..0],
-	tx_outclock
+	rx_out[3..0],
+	rx_outclock
 );

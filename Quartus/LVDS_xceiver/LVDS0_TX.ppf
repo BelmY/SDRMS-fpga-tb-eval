@@ -4,7 +4,9 @@
 <global>
 <pin name="tx_in[3..0]" direction="input" scope="external"  />
 <pin name="tx_inclock" direction="input" scope="external"  />
+<pin name="tx_locked" direction="output" scope="external"  />
 <pin name="tx_out[0..0]" direction="output" scope="external"  />
+<pin name="tx_outclock" direction="output" scope="external"  />
 
 </global>
 </pinplan>

@@ -1,4 +1,4 @@
-// megafunction wizard: %ALTIOBUF%
+// megafunction wizard: %ALTIOBUF%VBB%
 // GENERATION: STANDARD
 // VERSION: WM1.0
 // MODULE: altiobuf_in 
@@ -17,7 +17,6 @@
 // 18.1.1 Build 646 04/11/2019 SJ Lite Edition
 // ************************************************************
 
-
 //Copyright (C) 2019  Intel Corporation. All rights reserved.
 //Your use of Intel Corporation's design tools, logic functions 
 //and other software and tools, and any partner logic 
@@ -33,78 +32,14 @@
 //refer to the applicable agreement for further details, at
 //https://fpgasoftware.intel.com/eula.
 
-
-//altiobuf_in CBX_AUTO_BLACKBOX="ALL" DEVICE_FAMILY="Cyclone V" ENABLE_BUS_HOLD="FALSE" NUMBER_OF_CHANNELS=1 USE_DIFFERENTIAL_MODE="TRUE" USE_DYNAMIC_TERMINATION_CONTROL="FALSE" datain datain_b dataout
-//VERSION_BEGIN 18.1 cbx_altiobuf_in 2019:04:11:16:03:27:SJ cbx_mgl 2019:04:11:18:00:57:SJ cbx_stratixiii 2019:04:11:16:03:28:SJ cbx_stratixv 2019:04:11:16:03:28:SJ  VERSION_END
-// synthesis VERILOG_INPUT_VERSION VERILOG_2001
-// altera message_off 10463
-
-
-//synthesis_resources = cyclonev_io_ibuf 1 
-//synopsys translate_off
-`timescale 1 ps / 1 ps
-//synopsys translate_on
-module  RX_BUFF_iobuf_in_6pi
-	( 
-	datain,
-	datain_b,
-	dataout) ;
-	input   [0:0]  datain;
-	input   [0:0]  datain_b;
-	output   [0:0]  dataout;
-`ifndef ALTERA_RESERVED_QIS
-// synopsys translate_off
-`endif
-	tri0   [0:0]  datain_b;
-`ifndef ALTERA_RESERVED_QIS
-// synopsys translate_on
-`endif
-
-	wire  [0:0]   wire_ibufa_o;
-
-	cyclonev_io_ibuf   ibufa_0
-	( 
-	.i(datain),
-	.ibar(datain_b),
-	.o(wire_ibufa_o[0:0])
-	`ifndef FORMAL_VERIFICATION
-	// synopsys translate_off
-	`endif
-	,
-	.dynamicterminationcontrol(1'b0)
-	`ifndef FORMAL_VERIFICATION
-	// synopsys translate_on
-	`endif
-	);
-	defparam
-		ibufa_0.bus_hold = "false",
-		ibufa_0.differential_mode = "true",
-		ibufa_0.lpm_type = "cyclonev_io_ibuf";
-	assign
-		dataout = wire_ibufa_o;
-endmodule //RX_BUFF_iobuf_in_6pi
-//VALID FILE
-
-
-// synopsys translate_off
-`timescale 1 ps / 1 ps
-// synopsys translate_on
 module RX_BUFF (
 	datain,
 	datain_b,
-	dataout);
+	dataout)/* synthesis synthesis_clearbox = 1 */;
 
 	input	[0:0]  datain;
 	input	[0:0]  datain_b;
 	output	[0:0]  dataout;
-
-	wire [0:0] sub_wire0;
-	wire [0:0] dataout = sub_wire0[0:0];
-
-	RX_BUFF_iobuf_in_6pi	RX_BUFF_iobuf_in_6pi_component (
-				.datain (datain),
-				.datain_b (datain_b),
-				.dataout (sub_wire0));
 
 endmodule
 

@@ -3,3 +3,7 @@ set_global_assignment -name IP_TOOL_VERSION "18.1"
 set_global_assignment -name IP_GENERATED_DEVICE_FAMILY "{Cyclone V}"
 set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "RX_BUFF.v"]
 set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "RX_BUFF.bsf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "RX_BUFF_inst.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "RX_BUFF_bb.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "RX_BUFF.inc"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "RX_BUFF.cmp"]
