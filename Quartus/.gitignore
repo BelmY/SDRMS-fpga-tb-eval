@@ -11,6 +11,7 @@
 *_generation_script*
 *_inst.vhd
 *.bak
+*.cdf
 *.cmp
 *.done
 *.eqn
@@ -26,13 +27,13 @@
 *.qarlog
 *.qws
 *.rpt
-# *.sdc 
+# *.sdc
 *.smsg
 *.sof
 *.sopc_builder
 *.summary
 *.tcl
-# *.txt 
+# *.txt
 *~
 *example*
 *sopc_*
