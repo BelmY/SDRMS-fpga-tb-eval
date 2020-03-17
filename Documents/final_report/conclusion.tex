@@ -1,0 +1,17 @@
+Open source ice40 and ECP5 tool-chains are mature enough for code-based development. Tools for timing and some code generation scripts are already available. Simulation visualization is possible through other open-source projects, 
+
+APIO is a step forward towards an IDE easing development. Although it currently supports only ice40 devices the foundations for ecp5 support are well laid.
+
+IceStudio is the only application available allowing for block design development for the ice40 family. It is still lacking many features of the commercial equivalents but being an active project one can expect that it will be on par with commercial solutions. As with APIO, an ECP5 version is likely to be possible.
+
+Moving on to commercial solutions, Intel Quartus although initially appeared straightforward to use, there were some shortcomings. Being a project inherited from Altera, all code had to be refactored for re-branding. As it turns out this was done poorly and in some cases, users where required to alter platforms source files to overcome errors. 
+
+User experience left mixed feelings, although steps from block design to bit-stream are very clear, block design editor needs some work as it requires some effort to keep the design clean and tidy.
+
+Xilinx Vivado was a pleasant surprise regarding its block design editor. the interface is intuitive, blocks and connections can be managed in a way that always produces a clean and tidy design. Rearrange and align tools further help in that aspect. 
+A design assistant tool is also available to further accelerate design by suggesting missing elements of a newly placed IP.
+
+What felt a bit peculiar is the use of IPs even for simple tasks like selecting bits from a bus but it still promotes clear design UX wise.
+Finally, when it comes to choosing a device family for an open-source project, options are quite clear as ice40 and ECP5 are the first candidates.
+
+For more demanding applications an investment on Xilinx devices is suggested since an effort for Xilinx open-source tool-chains is in the works
